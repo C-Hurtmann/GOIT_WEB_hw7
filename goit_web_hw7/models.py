@@ -50,14 +50,3 @@ class Grade(Base):
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
-Base.metadata.bind = engine
-
-test_group = Group(title='Alpha')
-
-session.add(test_group)
-session.commit()
-
-test_student = Student(fullname='Jane Dou', group_id=1)
-
-session.add(test_student)
-session.commit()
