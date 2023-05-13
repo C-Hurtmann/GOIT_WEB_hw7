@@ -9,6 +9,7 @@ packages = [{include = "goit_web_hw7"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 sqlalchemy = "^2.0.13"
+alembic = "^1.10.4"
 
 
 [build-system]
