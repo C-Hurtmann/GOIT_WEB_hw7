@@ -1,11 +1,7 @@
-from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey, Table
+from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
-
-# engine = create_engine("postgresql+psycopg2://czagorodnyi:Szk6zynbGNWtPT%40@localhost:5432/postgres")
-# DBSession = sessionmaker(bind=engine)
-# session = DBSession()
 
 Base = declarative_base()
 

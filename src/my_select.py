@@ -1,8 +1,8 @@
 from sqlalchemy import select, func, desc
 
 from pprint import pprint
-from seeds import postgres_session as session
-from models import Group, Student, Teacher, Subject, Grade
+from src.seeds import postgres_session as session
+from src.models import Group, Student, Teacher, Subject, Grade
 
 
 def select_1():
@@ -64,9 +64,7 @@ def select_5():
 
 def select_6():
     query = session.execute(
-        select(Student.fullname, Group.title)
-        .join(Group)
-        .filter(Group.title == "Alpha")
+        select(Student.fullname, Group.title).join(Group).filter(Group.title == "Alpha")
     )
     return list(query)
 
