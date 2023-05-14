@@ -1,14 +1,13 @@
-from sqlalchemy import select, MetaData
 from sqlite3 import connect, Row
-from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.engine import create_engine
 from sqlalchemy.orm import sessionmaker
-from pprint import pprint
 
 from models import Group, Student, Subject, Teacher, Grade
 
 
-sqlite = create_engine("sqlite:////home/czagorodnyi/git/homeworks/GOIT_WEB_hw6/main.db")
+sqlite = create_engine(
+    "sqlite:////home/czagorodnyi/git/homeworks/GOIT_WEB_hw6/main.db"
+)
 postgres = create_engine(
     "postgresql+psycopg2://czagorodnyi:Szk6zynbGNWtPT%40@localhost:5432/postgres"
 )
