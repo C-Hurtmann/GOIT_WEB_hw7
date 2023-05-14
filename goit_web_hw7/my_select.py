@@ -64,7 +64,9 @@ def select_5():
 
 def select_6():
     query = session.execute(
-        select(Student.fullname, Group.title).join(Group).filter(Group.title == "Alpha")
+        select(Student.fullname, Group.title)
+        .join(Group)
+        .filter(Group.title == "Alpha")
     )
     return list(query)
 
