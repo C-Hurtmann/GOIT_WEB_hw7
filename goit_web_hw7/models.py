@@ -3,9 +3,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
 
-#engine = create_engine("postgresql+psycopg2://czagorodnyi:Szk6zynbGNWtPT%40@localhost:5432/postgres")
-#DBSession = sessionmaker(bind=engine)
-#session = DBSession()
+# engine = create_engine("postgresql+psycopg2://czagorodnyi:Szk6zynbGNWtPT%40@localhost:5432/postgres")
+# DBSession = sessionmaker(bind=engine)
+# session = DBSession()
 
 Base = declarative_base()
 
@@ -24,7 +24,9 @@ class Student(Base):
     birthday = Column(Date)
     phone = Column(String(50))
     email = Column(String(50))
-    group_id = Column(Integer, ForeignKey(Group.id, ondelete="NO ACTION", onupdate="CASCADE"))
+    group_id = Column(
+        Integer, ForeignKey(Group.id, ondelete="NO ACTION", onupdate="CASCADE")
+    )
     group = relationship("Group", back_populates="students")
 
 
@@ -39,9 +41,9 @@ class Subject(Base):
     __tablename__ = "subjects"
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
-    teacher_id = Column(Integer, ForeignKey('teachers.id'))
+    teacher_id = Column(Integer, ForeignKey("teachers.id"))
     teacher = relationship("Teacher", back_populates="subjects")
-    
+
 
 class Grade(Base):
     __tablename__ = "grades"
