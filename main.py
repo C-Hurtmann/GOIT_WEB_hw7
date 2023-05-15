@@ -9,7 +9,7 @@ from src.models import Grade, Student, Subject, Teacher, Group
 
 
 def gather_fields(namespace):
-    Model = getattr(modules[__name__], namespace.model)  # find Model by argument
+    Model = getattr(modules[__name__], namespace.model)  # find Model by string from argument
     needed_fields = [i.key for i in inspect(Model).mapper.column_attrs]
     result = {k: v for k, v in vars(namespace).items() if k in needed_fields and v}
     return Model, result
